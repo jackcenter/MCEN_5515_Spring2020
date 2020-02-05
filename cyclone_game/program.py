@@ -1,12 +1,15 @@
 import RPi.GPIO as GPIO
+include time
 
 GPIO.setmode(GPIO.BCM)
 
-GPIO.setup(18, GPIO.OUT)
-GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+led_pins = [18, 19, 20, 21, 24, 26, 27]
+but_pin = 23
+
+GPIO.setup(led_pins, GPIO.OUT)
+GPIO.setup(but_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 current_state = False
-#
 
 
 def button_press():
@@ -29,7 +32,10 @@ while game_count < 3:
     pressed = False
 
     while not pressed:
-        GPIO.output(18, False)
+        for pin in led_pins:
+            GPIO.output(pin, True)
+            time.sleep(0.25)
+
         # TODO: make lights flash
 
         if GPIO.event_detected(23) and not current_state:
@@ -37,6 +43,7 @@ while game_count < 3:
 
         elif GPIO.event_detected(23) and current_state:
             current_state = button_release()
+            break
 
     game_count += 1
 
