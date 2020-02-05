@@ -22,8 +22,7 @@ def button_release():
     # restart the game
 
 
-GPIO.add_event_detect(23, GPIO.RISING, bouncetime=300)
-GPIO.add_event_detect(23, GPIO.FALLING, bouncetime=300)
+GPIO.add_event_detect(23, GPIO.BOTH, bouncetime=50)
 
 game_count = 0
 while game_count < 3:
