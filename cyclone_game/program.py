@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-include time
+import time
 
 GPIO.setmode(GPIO.BCM)
 
@@ -7,6 +7,7 @@ led_pins = [18, 19, 20, 21, 24, 26, 27]
 but_pin = 23
 
 GPIO.setup(led_pins, GPIO.OUT)
+GPIO.output(led_pins, False)
 GPIO.setup(but_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 current_state = False
@@ -24,10 +25,17 @@ def button_release():
     # flash the light a few times
     # restart the game
 
+def whatIsHappening(channel):
+    if GPIO.input(channel) == 1:
+        print("rising?")
+    else:
+        print("falling?")
 
-GPIO.add_event_detect(23, GPIO.BOTH, bouncetime=50)
+
+GPIO.add_event_detect(23, GPIO.BOTH,callback=whatIsHappening, bouncetime=300)
 
 game_count = 0
+
 while game_count < 3:
     pressed = False
 
@@ -35,15 +43,19 @@ while game_count < 3:
         for pin in led_pins:
             GPIO.output(pin, True)
             time.sleep(0.25)
+            
+            if GPIO.event_detected(23) and not current_state:
+                current_state = button_press()
+                print("first= {}".format(current_state))
+
+            elif GPIO.event_detected(23) and current_state:
+                current_state = button_release()
+
+            GPIO.output(pin, False)
 
         # TODO: make lights flash
 
-        if GPIO.event_detected(23) and not current_state:
-            current_state = button_press()
 
-        elif GPIO.event_detected(23) and current_state:
-            current_state = button_release()
-            break
 
     game_count += 1
 
