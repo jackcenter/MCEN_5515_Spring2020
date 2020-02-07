@@ -45,7 +45,7 @@ while game_count < 3:
             time.sleep(0.25)
 
             if GPIO.event_detected(23):
-                if GPIO.input(channel) == 1:
+                if GPIO.input(23) == 1:
                     print("rising?")
                     pressed = True
                 else:
