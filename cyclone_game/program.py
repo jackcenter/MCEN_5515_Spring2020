@@ -25,14 +25,16 @@ def button_release():
     # flash the light a few times
     # restart the game
 
-# def whatIsHappening(channel):
-#     if GPIO.input(channel) == 1:
-#         print("rising?")
-#     else:
-#         print("falling?")
+
+def whatIsHappening(channel):
+    if GPIO.input(channel) == 1:
+        print("rising?")
+        time.sleep(3)
+    else:
+        print("falling?")
 
 
-GPIO.add_event_detect(23, GPIO.BOTH, bouncetime=100)
+GPIO.add_event_detect(23, GPIO.BOTH, callback=whatIsHappening, bouncetime=100)
 
 game_count = 0
 
@@ -43,14 +45,13 @@ while game_count < 3:
         for pin in led_pins:
             GPIO.output(pin, True)
 
-            if GPIO.event_detected(23):
-                if GPIO.input(23) == 1:
-                    print("rising?")
-                    pressed = True
-                    time.sleep(0.05)
-                    break
-                else:
-                    print("falling?")
+            # if GPIO.event_detected(23):
+            #     if GPIO.input(23) == 1:
+            #         print("rising?")
+            #         pressed = True
+            #         break
+            #     else:
+            #         print("falling?")
 
             time.sleep(0.25)
 
