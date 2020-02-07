@@ -32,7 +32,7 @@ def whatIsHappening(channel):
         print("falling?")
 
 
-GPIO.add_event_detect(23, GPIO.BOTH,callback=whatIsHappening, bouncetime=300)
+GPIO.add_event_detect(23, GPIO.BOTH, callback=whatIsHappening, bouncetime=50)
 
 game_count = 0
 
@@ -43,13 +43,20 @@ while game_count < 3:
         for pin in led_pins:
             GPIO.output(pin, True)
             time.sleep(0.25)
-            
-            if GPIO.event_detected(23) and not current_state:
-                current_state = button_press()
-                print("first= {}".format(current_state))
 
-            elif GPIO.event_detected(23) and current_state:
-                current_state = button_release()
+            if GPIO.event_detected(23):
+                if GPIO.input(channel) == 1:
+                    print("rising?")
+                    pressed = True
+                else:
+                    print("falling?")
+
+
+                # current_state = button_press()
+                # print("first= {}".format(current_state))
+
+            # elif GPIO.event_detected(23) and current_state:
+            #     current_state = button_release()
 
             GPIO.output(pin, False)
 
