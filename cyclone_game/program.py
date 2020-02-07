@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-import time
+from time import process_time, sleep
 
 GPIO.setmode(GPIO.BCM)
 
@@ -36,44 +36,32 @@ def button_release():
 
 GPIO.add_event_detect(23, GPIO.BOTH, bouncetime=100)
 
-game_count = 0
-max_counter = 100
+game = True
+wait_time = .5
 
-while game_count < 3:
-    pressed = False
+while game:
 
-    while not pressed:
-        for pin in led_pins:
-            counter = 0
-            while counter <= max_counter:
-                GPIO.output(pin, True)
+    for pin in led_pins:
+        GPIO.output(pin, True)
 
-                if GPIO.event_detected(23):
-                    if GPIO.input(23) == 1:
-                        print("rising?")
-                        pressed = True
-                        break
-                    else:
-                        print("falling?")
+        time_start = process_time()
+        time = time_start
+        while time - time_start < wait_time:
+            time = process_time()
 
-                counter += 1
+            if GPIO.event_detected(23):
+                time.sleep(5)
+                game = False
 
-            GPIO.output(pin, False)
+                # if GPIO.input(23) == 1:
+                #     print("rising?")
+                #     pressed = True
+                #     break
+                # else:
+                #     print("falling?")
+        if not game:
+            break
 
-            # time.sleep(0.25)
-
-            # current_state = button_press()
-            # print("first= {}".format(current_state))
-
-            # elif GPIO.event_detected(23) and current_state:
-            #     current_state = button_release()
-
-
-
-        # TODO: make lights flash
-
-
-
-    game_count += 1
+        GPIO.output(pin, False)
 
 GPIO.cleanup()
