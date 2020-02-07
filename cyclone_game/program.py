@@ -26,34 +26,39 @@ def button_release():
     # restart the game
 
 
-def whatIsHappening(channel):
-    if GPIO.input(channel) == 1:
-        print("rising?")
-        time.sleep(3)
-    else:
-        print("falling?")
+# def whatIsHappening(channel):
+#     if GPIO.input(channel) == 1:
+#         print("rising?")
+#         time.sleep(3)
+#     else:
+#         print("falling?")
 
 
-GPIO.add_event_detect(23, GPIO.BOTH, callback=whatIsHappening, bouncetime=100)
+GPIO.add_event_detect(23, GPIO.BOTH, bouncetime=100)
 
 game_count = 0
+max_counter = 100
 
 while game_count < 3:
     pressed = False
 
     while not pressed:
         for pin in led_pins:
-            GPIO.output(pin, True)
+            counter = 0
+            while counter <= max_counter:
+                GPIO.output(pin, True)
 
-            # if GPIO.event_detected(23):
-            #     if GPIO.input(23) == 1:
-            #         print("rising?")
-            #         pressed = True
-            #         break
-            #     else:
-            #         print("falling?")
+                if GPIO.event_detected(23):
+                    if GPIO.input(23) == 1:
+                        print("rising?")
+                        pressed = True
+                        break
+                    else:
+                        print("falling?")
 
-            time.sleep(0.25)
+                GPIO.output(pin, False)
+
+            # time.sleep(0.25)
 
             # current_state = button_press()
             # print("first= {}".format(current_state))
@@ -61,7 +66,7 @@ while game_count < 3:
             # elif GPIO.event_detected(23) and current_state:
             #     current_state = button_release()
 
-            GPIO.output(pin, False)
+
 
         # TODO: make lights flash
 
