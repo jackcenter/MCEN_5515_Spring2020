@@ -56,7 +56,9 @@ while game_count < 3:
                     else:
                         print("falling?")
 
-                GPIO.output(pin, False)
+                counter += 1
+
+            GPIO.output(pin, False)
 
             # time.sleep(0.25)
 
