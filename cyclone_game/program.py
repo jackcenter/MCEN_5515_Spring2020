@@ -37,7 +37,7 @@ def button_release():
 GPIO.add_event_detect(23, GPIO.BOTH, bouncetime=100)
 
 game = True
-wait_time = .5
+wait_time = .1
 
 while game:
 
@@ -50,7 +50,7 @@ while game:
             time_now = process_time()
 
             if GPIO.event_detected(23):
-                sleep(5)
+                sleep(2)
                 game = False
 
                 # if GPIO.input(23) == 1:
