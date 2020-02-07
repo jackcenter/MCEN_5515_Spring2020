@@ -45,12 +45,12 @@ while game:
         GPIO.output(pin, True)
 
         time_start = process_time()
-        time = time_start
-        while time - time_start < wait_time:
-            time = process_time()
+        time_now = time_start
+        while time_now - time_start < wait_time:
+            time_now = process_time()
 
             if GPIO.event_detected(23):
-                time.sleep(5)
+                sleep(5)
                 game = False
 
                 # if GPIO.input(23) == 1:
