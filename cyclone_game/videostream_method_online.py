@@ -37,6 +37,17 @@ while True:
 
 	# Show video stream
 	cv2.imshow('orig', frame)
+    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+    
+    lower_green = np.array([0, 0, 0])
+    upper_green = np.array([255, 255, 255])
+    
+    mask = cv2.inRange(hsv, lower_green, upper_green)
+    result = cv2.bitwise_and(frame, frame, mask=mask)   
+    cv2.imshow('mask', mask)
+    cv2.imshow('result', result)
+    
+    
 	key = cv2.waitKey(1) & 0xFF
 
 	# if the `q` key was pressed, break from the loop.
