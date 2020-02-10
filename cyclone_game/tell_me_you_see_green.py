@@ -42,7 +42,7 @@ time.sleep(0.1)
 for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):
 	# grab the raw NumPy array representing the image, then initialize the timestamp
 	# and occupied/unoccupied text
-	hsv = cv2.cvtColor(np.float32(frame), cv2.COLOR_BGR2HSV)
+	hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
 	lower_green = np.array([0, 0, 0])
 	upper_green = np.array([255, 255, 255])
