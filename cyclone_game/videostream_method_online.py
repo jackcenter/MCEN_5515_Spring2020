@@ -38,8 +38,8 @@ while True:
 	# Show video stream
     cv2.imshow('orig', frame)
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-    lower_green = np.array([59, 10, 10])
-    upper_green = np.array([121, 245, 245])
+    lower_green = np.array([40, 10, 200])
+    upper_green = np.array([120, 245, 255])
 
     mask = cv2.inRange(hsv, lower_green, upper_green)
     result = cv2.bitwise_and(frame, frame, mask=mask)   
