@@ -42,16 +42,27 @@ while True:
         frame = imutils.resize(frame, width=frameSize[0])
 
     # Show video stream
-    cv2.imshow('orig', frame)
+    # cv2.imshow('orig', frame)
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
     lower_green = np.array([40, 10, 200])
     upper_green = np.array([120, 245, 255])
 
     mask = cv2.inRange(hsv, lower_green, upper_green)
-    print(mask)
+    # for x in mask:
+    mask_summed = [sum(x) for x in mask]
+    light_reading = sum(mask_summed)
+    # print(light_reading)
+    # print("hi chadd")
+    
+    if light_reading > 2500:
+        GPIO.output(push_pin, True)
+        time.sleep(1)
+        GPIO.output(push_pin, False)
+        
+    
     result = cv2.bitwise_and(frame, frame, mask=mask)
     cv2.imshow('mask', mask)
-    cv2.imshow('result', result)
+    # cv2.imshow('result', result)
 
     key = cv2.waitKey(1) & 0xFF
 
@@ -59,7 +70,7 @@ while True:
     if key == ord("q"):
         break
 
-    print(1 / (time.time() - timeCheck))
+    # print(1 / (time.time() - timeCheck))
     timeCheck = time.time()
 
 # Cleanup before exit.

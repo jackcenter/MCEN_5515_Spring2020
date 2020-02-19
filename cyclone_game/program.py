@@ -38,7 +38,7 @@ def button_release():
 GPIO.add_event_detect(23, GPIO.RISING, bouncetime=200)
 
 game = True
-wait_time = .1
+wait_time = .5
 
 while game:
 
