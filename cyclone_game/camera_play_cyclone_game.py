@@ -15,6 +15,7 @@ import numpy as np
 from imutils.video import VideoStream
 import imutils
 
+GPIO.setmode(GPIO.BCM)
 push_pin = 17
 GPIO.setup(push_pin, GPIO.OUT)
 GPIO.output(push_pin, False)
@@ -64,3 +65,4 @@ while True:
 # Cleanup before exit.
 cv2.destroyAllWindows()
 vs.stop()
+GPIO.cleanup()
