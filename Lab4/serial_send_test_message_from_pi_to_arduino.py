@@ -12,7 +12,7 @@ print ("Connecting to " + host)
 port = 23
 
 s = socket(AF_INET, SOCK_STREAM)
-print "Socket made"
+print ("Socket made")
 
 ready = select.select([s],[],[],timeout)
 
@@ -28,6 +28,6 @@ if ready[0]:        #if data is actually available for you
 
     data = s.recv(4096)
     print("[INFO] Data received")
-    print data
+    print (data)
     
     
