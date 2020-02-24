@@ -1,11 +1,12 @@
-from socket import * import select
+from socket import * 
+import select
 
 data = None
 
 timeout = 3 # timeout in seconds
 msg = "test"
 
-host = "192.168.1.113"
+host = "169.254.107.83"
 print ("Connecting to " + host)
 
 port = 23
