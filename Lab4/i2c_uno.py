@@ -1,6 +1,6 @@
 import smbus
 import time
-bus = smbus.SMBus(1)
+bus = smbus.SMBus(1)        # 1 is for custom, non-shield
 
 # I2C address of Arduino Slave
 address = 0x07

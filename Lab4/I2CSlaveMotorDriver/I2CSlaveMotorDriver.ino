@@ -50,7 +50,8 @@ void receiveEvent(int howMany) {
   byte cmd = Wire.read();
   if (cmd == CMD_ON){
     forward(6);
-  }else if(cmd == CMD_OFF){
+  }
+  else if(cmd == CMD_OFF){
     motor1.brake();
     motor2.brake();
   }
