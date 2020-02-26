@@ -51,7 +51,8 @@ void receiveEvent(int howMany) {
   if (cmd == CMD_ON){
     forward(6);
   }else if(cmd == CMD_OFF){
-    turnLeft(30);
+    motor1.brake();
+    motor2.brake();
   }
 }
 
