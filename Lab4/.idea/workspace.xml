@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0c56074a-b2c1-4219-86a1-db1c2cb5500e" name="Default Changelist" comment="" />
+    <list default="true" id="0c56074a-b2c1-4219-86a1-db1c2cb5500e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/i2c_uno.py" beforeDir="false" afterPath="$PROJECT_DIR$/i2c_uno.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,9 +54,9 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="186" y="79" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1582564321838" />
-    <state x="380" y="260" key="com.intellij.ide.util.TipDialog" timestamp="1582694771463">
+    <state x="380" y="260" key="com.intellij.ide.util.TipDialog" timestamp="1582734813710">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="380" y="260" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1582694771463" />
+    <state x="380" y="260" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1582734813710" />
   </component>
 </project>

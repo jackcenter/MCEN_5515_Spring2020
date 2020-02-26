@@ -8,5 +8,4 @@ address = 0x07
 LEDst = [0x00, 0x01, 0x00, 0x01, 0x00, 0x00, 0x01, 0x01]
 for s in LEDst:
     bus.write_byte(address, s)
-    time.sleep(1)
-    
+    time.sleep(5)
