@@ -26,6 +26,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../COHRINT/hide_and_seek" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="SvnConfiguration">
@@ -42,9 +43,17 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="465" y="191" key="FileChooserDialogImpl" timestamp="1582694795230">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="465" y="191" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1582694795230" />
     <state x="186" y="79" key="SettingsEditor" timestamp="1582564321838">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="186" y="79" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1582564321838" />
+    <state x="380" y="260" key="com.intellij.ide.util.TipDialog" timestamp="1582694771463">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="380" y="260" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1582694771463" />
   </component>
 </project>
