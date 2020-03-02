@@ -26,7 +26,8 @@ void receiveEvent(int howMany) {
   Serial.print("len:");
   Serial.println(numOfBytes);
   
-  byte cmd = Wire.read();  //cmd
+  char cmd = char(Wire.read());  //cmd
+  
   Serial.print("cmd:");
   Serial.println(cmd);
 

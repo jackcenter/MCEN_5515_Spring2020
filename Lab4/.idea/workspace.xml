@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0c56074a-b2c1-4219-86a1-db1c2cb5500e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i2c_uno.py" beforeDir="false" afterPath="$PROJECT_DIR$/i2c_uno.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,17 +45,17 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="465" y="191" key="FileChooserDialogImpl" timestamp="1582694795230">
+    <state x="465" y="191" key="FileChooserDialogImpl" timestamp="1582761107758">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="465" y="191" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1582694795230" />
+    <state x="465" y="191" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1582761107758" />
     <state x="186" y="79" key="SettingsEditor" timestamp="1582564321838">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="186" y="79" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1582564321838" />
-    <state x="380" y="260" key="com.intellij.ide.util.TipDialog" timestamp="1582737377764">
+    <state x="380" y="260" key="com.intellij.ide.util.TipDialog" timestamp="1582761075685">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="380" y="260" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1582737377764" />
+    <state x="380" y="260" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1582761075685" />
   </component>
 </project>
