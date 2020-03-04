@@ -159,10 +159,9 @@ bool validate_sensor_reading(float data)
   }
 }
 
-
 float getError(float dist)
 {
-  // JUST FOLLWING LEFT SENSOR
+  // JUST FOLLWING SENSOR
   // negative error is too close
   // positive error is too far
   return dist - 4;
