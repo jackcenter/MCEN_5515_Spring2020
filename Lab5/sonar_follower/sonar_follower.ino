@@ -30,8 +30,8 @@ const int offsetLeft = -1;
 const int offsetRight = 1;
 Motor motorRight = Motor(AIN1, AIN2, PWMA, offsetLeft, STBY);
 Motor motorLeft = Motor(BIN1, BIN2, PWMB, offsetRight, STBY);
-int leftBaseSpeed = 150;
-int rightBaseSpeed = 150;
+int leftBaseSpeed = 108;
+int rightBaseSpeed = 117;
 int leftSpeed = leftBaseSpeed;
 int rightSpeed = rightBaseSpeed;
 float error = 0.0;
@@ -48,13 +48,15 @@ void loop() {
   getDistance(distanceLeft, distanceRight);
   // error = getError(distanceLeft,distanceRight);
   adjustSpeed(leftSpeed, rightSpeed, distanceLeft, distanceRight);
-  
+
+  Serial.print("Line 1: ");
   Serial.print(distanceLeft);
   Serial.print(" / ");
   Serial.print(distanceRight);
   Serial.print(" / ");
   Serial.println(error);
 
+  Serial.print("Line 2: ");
   Serial.print(leftSpeed);
   Serial.print(" / ");
   Serial.println(rightSpeed);
@@ -78,7 +80,7 @@ void getDistance(float &distLeft, float &distRight)
   digitalWrite(trigPin, LOW);
   echoTimeLeft = pulseIn(echoPinLeft, HIGH);      //use the pulsein command to see how long it takes for the pulse to bounce back to the sensor
 
-  delay(30);
+  delay(100);
 
   digitalWrite(trigPin, HIGH);
   delay(10); 
@@ -121,28 +123,58 @@ void adjustSpeed(int &spdLeft, int &spdRight, float distLeft, float distRight)
       case 'A':
         break;
       case 'B':
+        mode_B(spdLeft, spdRight);
         break;
       case 'L':
+        error = getError(distLeft);
+        mode_L(spdLeft, error);
         break;
       case 'R':
+        error = getError(distRight);
+        mode_L(spdRight, error);
         break;
-    }
+  }
+} 
 
+void mode_B(int &spdLeft, int &spdRight)
+{
+  spdLeft = leftBaseSpeed;
+  spdRight = rightBaseSpeed;
+}
 
-  // MODE L
+void mode_L(int &spdLeft, float error)
+{
   if (error < -1)
   {
-    spdLeft = leftBaseSpeed + 100;
+    spdLeft = leftBaseSpeed + 50;
   }
 
   else if (error > 2)
   {
-    spdLeft = leftBaseSpeed - 100;
+    spdLeft = leftBaseSpeed - 35;
   }
 
   else
   {
     spdLeft = leftBaseSpeed;
+  }
+}
+
+void mode_R(int &spdRight, float error)
+{
+  if (error < -1)
+  {
+    spdRight = rightBaseSpeed + 50;
+  }
+
+  else if (error > 2)
+  {
+    spdRight = rightBaseSpeed - 35;
+  }
+
+  else
+  {
+    spdRight = rightBaseSpeed;
   }
 }
 
